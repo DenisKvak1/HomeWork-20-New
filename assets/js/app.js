@@ -9,10 +9,11 @@ tableO=document.getElementById('table')
 
 button.addEventListener("click", function() {
     if(+sum.value>0 && +procent.value>0 && +term.value>0){
+        t=Math.round(term.value);
         tableO.classList.remove('d-none');
         creditData=[]
         let dolg=+sum.value;
-        let telo=+(sum.value/term.value)
+        let telo=+(sum.value/t)
         let proc=+(dolg*((procent.value/12)/100));
         let plat=+(telo+proc);
         creditData[0]={
@@ -21,7 +22,7 @@ button.addEventListener("click", function() {
             'proc':Math.round(proc*100)/100,
             'plat':Math.round(plat*100)/100
         }   
-        for(let i=1; i<term.value; i++){     
+        for(let i=1; i<t; i++){     
            dolg=dolg-telo;      
            proc=+(dolg*((procent.value/12)/100));
            plat=+(telo+proc);
