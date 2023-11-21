@@ -5,9 +5,11 @@ procent=document.getElementById('percent')
 term=document.getElementById('term')
 button=document.getElementById('btn')
 table=document.getElementById('tableBody')
+tableO=document.getElementById('table')
 
 button.addEventListener("click", function() {
     if(+sum.value>0 && +procent.value>0 && +term.value>0){
+        tableO.classList.remove('d-none');
         creditData=[]
         let dolg=+sum.value;
         let telo=+(sum.value/term.value)
@@ -51,9 +53,10 @@ button.addEventListener("click", function() {
                 <th scope="row">Итого</th>
                 <td></td>
                 <td>${Math.round(creditData.reduce((a, cv) => a + cv['telo'], 0))}</td>
-                <td>${Math.round(creditData.reduce((a, cv) => a + cv['proc'], 0)*100)/100}</td>
+                <td>Переплата: ${Math.round(creditData.reduce((a, cv) => a + cv['proc'], 0)*100)/100}</td>
                 <td></td>
             </tr>`
         table.insertAdjacentHTML('beforeend', html);
+
     }
 });
