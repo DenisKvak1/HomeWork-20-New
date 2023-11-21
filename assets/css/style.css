@@ -1,0 +1,11 @@
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.cont{
+    margin-top: 50px;
+    display: grid;
+    row-gap: 10px;
+}
