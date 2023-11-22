@@ -9,7 +9,7 @@ tableO=document.getElementById('table')
 warn=document.getElementById('warn')
 
 button.addEventListener("click", function() {
-    if(sum.value.includes('.') || sum.value.includes(',') || term.value.includes('.') || term.value.includes(',') || +sum.value>9999999999 ){
+    if(term.value.includes('.') || term.value.includes(',') || +sum.value>9999999999 ){
         warn.textContent = "Введите корректные данные :)";
         tableO.classList.add('d-none');
     }
@@ -19,29 +19,32 @@ button.addEventListener("click", function() {
         tableO.classList.remove('d-none');
         creditData=[]
         let dolg=+sum.value;
-        let telo=+(sum.value/t)
+        let telo=Math.round((sum.value/t)*100)/100
         let proc=Math.round((dolg*((procent.value/12)/100))*100)/100;
-        let plat=+(telo+proc);
+        let plat=Math.round((telo+proc)*100)/100
         creditData[0]={
-            'dolg':Math.round(dolg*100)/100,
-            'telo':Math.round(telo*100)/100,
-            'proc':Math.round(proc*100)/100,
-            'plat':Math.round(plat*100)/100
+            'dolg':dolg,
+            'telo':telo,
+            'proc':proc,
+            'plat':plat
         }   
-        for(let i=1; i<t; i++){     
+        for(let i=1; i<t; i++){    
+           telo=Math.round(telo*100)/100 
            dolg=Math.round((dolg-telo) *100)/100;      
            proc=Math.round((dolg*((procent.value/12)/100))*100)/100;
-           plat=+(telo+proc);
+           plat=Math.round((telo+proc)*100)/100
            if(telo>dolg || i === t - 1){
                 telo=dolg
-                plat=+(telo+proc);
+                plat=Math.round((telo+proc)*100)/100;
            }
            creditData[i]={
-            'dolg':Math.round(dolg*100)/100,
-            'telo':Math.round(telo*100)/100,
-            'proc':Math.round(proc*100)/100,
-            'plat':Math.round(plat*100)/100
-        }   
+            'dolg':dolg,
+            'telo':telo,
+            'proc':proc,
+            'plat':plat
+            }   
+            console.log(dolg,telo,proc,plat)
+
         }
         table.innerHTML=''
         for (let i = 0; i < creditData.length; i++) {
