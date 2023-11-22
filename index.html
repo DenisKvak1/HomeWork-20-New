@@ -15,7 +15,7 @@
                 <input class="form-control" type="number" id="sum">
             </div>
             <div>
-                <label class="mb-1" for="percent">Процентная ставка: (% годовых)</label>
+                <label class="mb-1 " for="percent">Процентная ставка: (% годовых)</label>
                 <input class="form-control" type="number" id="percent">
             </div>
             <div>
@@ -24,15 +24,15 @@
             </div>
             <div class="btn btn-primary" id="btn">Рассчитать</div>
         </div>
-
+        <h2 id="warn" class="mt-2"></h2>
         <table class="table mt-5 d-none"  id="table">
             <thead>
               <tr>
-                <th scope="col">Месяц</th>
-                <th scope="col">Задолженность по кредиту</th>
-                <th scope="col">Погашение кредита</th>
-                <th scope="col">Проценты по кредиту</th>
-                <th scope="col">Выплаты в месяц</th>
+                <th scope="col" class=" ellipsis">Месяц</th>
+                <th scope="col" class=" ellipsis">Задолженность по кредиту</th>
+                <th scope="col" class=" ellipsis">Погашение кредита</th>
+                <th scope="col" class=" ellipsis">Проценты по кредиту</th>
+                <th scope="col" class=" ellipsis">Выплаты в месяц</th>
               </tr>
             </thead>
             <tbody  id="tableBody">
