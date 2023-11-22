@@ -13,7 +13,7 @@ button.addEventListener("click", function() {
         warn.textContent = "Введите корректные данные :)";
         tableO.classList.add('d-none');
     }
-    else if(+sum.value>0 && +procent.value>0 && +term.value>0 && +procent.value<1000 &&  +term.value<300.01){
+    else if(+sum.value>0 && +procent.value>0 && +term.value>0 && +procent.value<1000 &&  +term.value<1000.01){
         warn.textContent = "";
         t=Math.round(term.value);
         tableO.classList.remove('d-none');
