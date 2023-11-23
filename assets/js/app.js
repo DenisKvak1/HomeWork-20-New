@@ -43,8 +43,6 @@ button.addEventListener("click", function() {
             'proc':proc,
             'plat':plat
             }   
-            console.log(dolg,telo,proc,plat)
-
         }
         table.innerHTML=''
         for (let i = 0; i < creditData.length; i++) {
